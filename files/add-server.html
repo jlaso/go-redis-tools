@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JLaso Redis tools | Add server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico?v=0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/add-server.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <form class="form-signin" action="/add-server" method="post">
+        <div id="logo">
+            <img class="mb-4" src="https://redis.io/images/redis-white.png" alt="" height="72">
+        </div>
+        <h1 class="h3 mb-3 font-weight-normal">Add new server</h1>
+        <div class="form-label-group">
+            <input type="address" id="input_address" name="host" class="form-control"
+                   placeholder="Server address" value="localhost" autofocus>
+            <label for="for_address" class="">Server address</label>
+        </div>
+        <div class="form-label-group">
+            <input type="number" id="input_port" name="port" class="form-control"
+                   placeholder="Port" value="6379">
+            <label for="input_port" class="">Port</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add server</button>
+    </form>
+</div>
+</body>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+</html>
+

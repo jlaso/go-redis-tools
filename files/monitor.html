@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico?v=0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+
+    <title>JLaso Redis tools</title>
+</head>
+
+<body>
+
+<h1>Redis</h1>
+
+<div>
+    <ul id="status">
+
+    </ul>
+</div>
+
+</body>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+    $(function(){
+        var server = (new URL(window.location)).searchParams.get('server');
+        //setInterval(function(){
+            $.ajax({
+                url: '/redis',
+                method: 'get',
+                data: {
+                    server: server
+                },
+                success: function(data){
+                    console.log(data);
+                    var txt = "";
+                    for (var i in data) {
+                        console.log(i, data[i]);
+                        txt += data[i].key + " => " + data[i].value;
+                    }
+                    $("#status").html(txt);
+                },
+                error: function(a, b, c) {
+                    console.log("Error", a, b, c);
+                }
+            })
+        //}, 3000);
+    });
+</script>
+</html>
